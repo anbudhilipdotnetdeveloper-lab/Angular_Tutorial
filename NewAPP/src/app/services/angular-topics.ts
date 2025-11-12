@@ -38,7 +38,7 @@ export class AngularTopics {
     .pipe(catchError(this.errorHandler))
   }
   delete(id:string):Observable<any>{
-    return this.httpClient.delete(this.apiURL+"/AngularTutorial/Delete"+id)
+    return this.httpClient.delete(this.apiURL+"/AngularTutorial/Delete/"+id)
     .pipe(catchError(this.errorHandler))
   }
 

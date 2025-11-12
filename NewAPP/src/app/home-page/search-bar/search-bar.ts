@@ -3,6 +3,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
 import {CommonModule} from '@angular/common'
 import { clear } from 'console';
+import{ Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-search-bar',
@@ -11,6 +13,7 @@ import { clear } from 'console';
   styleUrl: './search-bar.css'
 })
 export class SearchBar implements OnInit {
+constructor (private router:Router ){}
   searchControl = new FormControl('');
    Topics =[
     'Modules (NgModules)',

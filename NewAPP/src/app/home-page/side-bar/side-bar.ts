@@ -36,5 +36,11 @@ export class SideBar {
   trackByIndex(index: number, item: any) {
   return index;
 }
+onSelectItem(itemId: string): void {
+  const element = document.getElementById(itemId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
 }

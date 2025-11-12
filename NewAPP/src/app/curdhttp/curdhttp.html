@@ -1,5 +1,5 @@
 <div class="container">
-    <a [routerLink]="['create']" class="btn btn-success">Create New Topic</a>
+    <a [routerLink]="['AddEdit']" class="btn btn-success">Create New Topic</a>
     <table class="table">
         <thead>
             <tr>
@@ -11,19 +11,20 @@
             </tr>
         </thead>
         <tbody>
-         @for (post of posts;track $index ){
+         @for (post of posts;track $index ){ 
             <tr>
                  <td>{{post.Id}}</td>
                 <td>{{post.Topic}}</td>
                 <td>{{post.Question}}</td>
                 <td>{{post.Answer}}</td>
-                <td>
-                   <a  href="#" [routerLink]="['edit/',post.Id]" routerLinkActive="active" class="btn btn-warning">Edit</a>
-                   <a  href="#" [routerLink]="['edit/',post.Id]" routerLinkActive="active" class="btn btn-danger">Delete</a>
-                </td>
+                     <td>
+                         <a (click)="edit(post)" class="btn btn-warning">Edit</a>
+                         <a (click)="delete(post.Id)" class="btn btn-danger">Delete</a>
+                     </td>
             </tr>
         }
         </tbody>
 
     </table>
+    <!-- AddEdit renders via top-level route /curds/AddEdit/:id in the main outlet -->
 </div>

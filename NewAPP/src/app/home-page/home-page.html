@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">Welcome to Angular Topics</h2>
+
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Show all topics -->
+      <div *ngIf="Topic_List && Topic_List.length > 0; else noData">
+        <div *ngFor="let topic of Topic_List" class="card mb-3 shadow-sm" [attr.id]="topic.Id">
+            <div id="{{topic.Id}}">
+          <div class="card-header bg-success text-white">
+            <h5 class="mb-0">{{ topic.Topic }}</h5>
+          </div>
+          <div class="card-body">
+            <h6 class="card-title text-secondary">Q: {{ topic.Question }}</h6>
+            <p class="card-text">
+              <strong>Answer:</strong> {{ topic.Answer }}
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fallback if no data -->
+      <ng-template #noData>
+        <div class="alert alert-warning text-center mt-5">
+          No topics available.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

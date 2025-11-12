@@ -28,7 +28,7 @@ export interface curdtbl {
     RefId:number;
 }
 export interface Post {
-    Id:Number;
+    Id:string;
     Topic: string;
     Question: string;
     Answer:string;

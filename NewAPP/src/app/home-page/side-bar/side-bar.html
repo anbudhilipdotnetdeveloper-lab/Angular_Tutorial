@@ -1,5 +1,5 @@
-<div class="sidebar">
-  <ul class="nav flex-column">
+<div class="sidebar bg-success text- p-3 sticky-top ">
+  <ul class="nav flex-column " >
     <!-- ✅ Working main link -->
     <li class="nav-item">
       <a routerLink="/content" routerLinkActive="active-link">Content Page</a>
@@ -7,17 +7,18 @@
 
     <!-- ✅ Angular Topics submenu -->
     <li>
-      <a class="nav-link" data-bs-toggle="collapse" href="#submenu1" role="button"
+      <a class="nav-link text-start fs-5" data-bs-toggle="collapse" href="#submenu1" role="button"
          aria-expanded="false" aria-controls="submenu1" (click)="getTopics()">
         <i class="bi bi-folder"></i> Angular Topics ▼
       </a>
 
       <div class="collapse" id="submenu1">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3 btn">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3  ">
           <li *ngFor="let post of posts; let i = index; trackBy: trackByIndex">
             <!-- ✅ Either route or anchor, not both -->
-            <a [routerLink]="['/topics', post.Topic]" routerLinkActive="active-link" class="d-block py-1">
-              {{ post.Topic }}
+            <a [routerLink]="['/topics', post.Topic]" routerLinkActive="active-link" class="py-1 text-start" style="padding: inherit;font-size: medium;" 
+            (click)="onSelectItem(post.Id)">
+               {{  i+1 +'. '+ post.Topic }}
             </a>
           </li>
         </ul>
@@ -26,18 +27,18 @@
 
     <!-- ✅ CURD section -->
     <li>
-      <a class="nav-link" data-bs-toggle="collapse" href="#curd" role="button"
+      <a class="nav-link text-start fs-5" data-bs-toggle="collapse" href="#curd" role="button"
          aria-expanded="false" aria-controls="curd">
         <i class="bi bi-folder"></i> Manage Angular Topics ▼
       </a>
 
       <div class="collapse" id="curd">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3 ">
           <li>
-            <a routerLink="/curds" routerLinkActive="active-link" class="d-block py-1">Edit Topics</a>
+            <a routerLink="/curds" routerLinkActive="active-link" class="d-block py-1" style="padding: inherit;font-size: medium;"> 1. Edit Topics</a>
           </li>
           <li>
-            <a routerLink="/curd" routerLinkActive="active-link" class="d-block py-1">LocalStorageCURD</a>
+            <a routerLink="/curd" routerLinkActive="active-link" class="d-block py-1" style="padding: inherit;font-size: medium;">2. LocalStorageCURD</a>
           </li>
         </ul>
       </div>

@@ -8,8 +8,7 @@ import { SideBar } from './home-page/side-bar/side-bar';
 import { ContentPage } from './home-page/content-page/content-page';
 import { CURD } from './curd/curd';
 import { CURDHTTP } from './curdhttp/curdhttp';
-import { Edit } from './curdhttp/edit/edit';
-import { Create } from './curdhttp/create/create';
+import { AddEdit } from './curdhttp/addedit/addedit';
 
 
 export const routes: Routes = [
@@ -18,9 +17,11 @@ export const routes: Routes = [
     {path:'about',component:CURDHTTP},
     {path:'content',component:ContentPage},
     {path:'curd',component:CURD},
-    {path:'curds',component:CURDHTTP},
-    {path:'curds/create',component:Create },
-    {path:'curds/edit/:TopicId',component:Edit}  
+  { path: 'curds', component: CURDHTTP },
+  // render AddEdit in the main outlet under /curds/AddEdit
+  { path: 'curds/AddEdit/:TopicId', component: AddEdit },
+  { path: 'curds/AddEdit', component: AddEdit },
+
       // children :
       // [
       //   {path:'create',component:Create },
