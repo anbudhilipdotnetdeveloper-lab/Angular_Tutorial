@@ -8,12 +8,12 @@
         <div *ngFor="let topic of Topic_List" class="card mb-3 shadow-sm" [attr.id]="topic.Id">
             <div id="{{topic.Id}}">
           <div class="card-header bg-success text-white">
-            <h5 class="mb-0">{{ topic.Topic }}</h5>
+            <h5 class="mb-0">{{  topic.Topic }}</h5>
           </div>
           <div class="card-body">
             <h6 class="card-title text-secondary">Q: {{ topic.Question }}</h6>
-            <p class="card-text">
-              <strong>Answer:</strong> {{ topic.Answer }}
+            <p class="">
+              <strong>Answer:</strong> <span [innerHTML]="topic.Answer"></span>
             </p>
           </div>
           </div>

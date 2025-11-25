@@ -19,7 +19,7 @@ export const routes: Routes = [
     {path:'curd',component:CURD},
   { path: 'curds', component: CURDHTTP },
   // render AddEdit in the main outlet under /curds/AddEdit
-  { path: 'curds/AddEdit/:TopicId', component: AddEdit },
+  { path: 'curds/AddEdit', component: AddEdit },
   { path: 'curds/AddEdit', component: AddEdit },
 
       // children :

@@ -7,9 +7,10 @@ import { ContentPage } from './content-page/content-page';
 import { error } from 'console';
 import{Post} from '../models/curdtbl';
 import { AngularTopics } from '../services/angular-topics';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'app-home-page',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
   standalone: true
@@ -18,12 +19,17 @@ export class HomePage implements OnInit {
 
 Topic_List:Post[]=[];
 
-constructor(public angularTopic :AngularTopics ){}
+constructor(public angularTopic :AngularTopics ,public sanitizer : DomSanitizer){}
 ngOnInit(): void {
   this.angularTopic.getAll().subscribe({
     next:(response)=>{
       if(response.isSuccess){
-        this.Topic_List=JSON.parse(response.data);
+            const rawData = JSON.parse(response.data);
+        // Sanitize topic content
+        this.Topic_List = rawData.map((item: any) => ({
+          ...item,
+          Answer: this.sanitizer.bypassSecurityTrustHtml(item.Answer)
+        }));
       }else{
         alert(response.message);
         console.log(response.message);

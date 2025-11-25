@@ -7,6 +7,7 @@ import { error } from 'console';
 import {Express} from 'express';
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { AddEdit } from './addedit/addedit';
+import { ToastService } from '../services/toast-service';
 
 
 @Component({
@@ -18,7 +19,9 @@ import { AddEdit } from './addedit/addedit';
 export class CURDHTTP implements OnInit {
  posts:Post[] =[];
 
-constructor (private router: Router, public angularTopic :AngularTopics ){}
+constructor (private router: Router,
+  public toastService:ToastService,
+   public angularTopic :AngularTopics ){}
 
   ngOnInit(): void {
     this.angularTopic.getAll().subscribe({
@@ -27,7 +30,7 @@ constructor (private router: Router, public angularTopic :AngularTopics ){}
           this.posts = JSON.parse(response.data)
         }
         else {
-          alert(response.message);
+          this.toastService.show(response.message,'error');
         }
       },
       error: (error) => {

@@ -6,6 +6,7 @@ import {AngularTopics} from '../../services/angular-topics'
 import { response } from 'express';
 import { error } from 'console';
 import { Router,ActivatedRoute } from '@angular/router';
+import { ToastService } from '../../services/toast-service';
 @Component({
   selector: 'app-create',
   imports: [ReactiveFormsModule,CommonModule],
@@ -16,7 +17,9 @@ export class AddEdit implements OnInit {
 
   private  router = inject(Router);
   private route = inject(ActivatedRoute);
-  constructor(public angulartopicService :AngularTopics ){}
+  constructor(public angulartopicService :AngularTopics,
+    public toastService : ToastService
+   ){}
 
   PostFrom!:FormGroup;
   currentId: string | null = null;
@@ -75,7 +78,6 @@ export class AddEdit implements OnInit {
         this.angulartopicService.update(this.currentId, newPost).subscribe({
           next: (response) => {
             if (response.isSuccess) {
-              alert('Angular Topic updated successfully');
               this.router.navigate(['/curds']);
             } else {
               alert('Unable to update Angular Topic');
@@ -88,13 +90,13 @@ export class AddEdit implements OnInit {
         this.angulartopicService.create(PostList).subscribe({
           next :(response)=>{
             if(response.isSuccess){
-              alert("New Angular Topic Created Succesfully");
+              this.toastService.show("New Angular Topic Created Succesfully",'success');
               this.router.navigate(['/curds']);
             }else{
-               alert("Unable to Create Angular Topic");
+               this.toastService.show("Unable to Create Angular Topic",'error');
             }
           },error:(error)=>{
-            alert(error);
+            this.toastService.show(error);
           }
         })
       }
