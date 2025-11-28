@@ -1,0 +1,5 @@
+<div class="container">
+    <h3>1. Parent component (show-alert) pass data to child component (alert-message)</h3>
+    <input [(ngModel)]="mg" placeholder="his is an alert message built for INPUT Property" />
+    <app-alert-message [message]= "mg" (onSubmitData)="onSub($event)"></app-alert-message>
+</div>

@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+    <h1 class="m-4">Welcome to NoteMaking</h1>
+    <form [formGroup]='LoginForm' (ngSubmit)="onSubmit()">
+        <div class="row">
+            <label for="Uname">UserName</label>
+            <input type="text" name="Uname" formControlName="UserName" autocomplete="off" placeholder="anbuvel">
+        </div>
+        <div class="row">
+            <label for="password">Password</label>
+            <input type="password" formControlName="Password" name="password">
+        </div>
+        <div class="row">
+            <label for="Confpassword">Password</label>
+            <input type="password" formControlName="ConfrimPassword" name="Confpassword">
+        </div>
+        <div class="row">
+            <label for="captcha" *ngFor="let captcha of captchaText">
+                {{ captcha }}
+            </label>
+        </div>
+        <div class="row">
+            <input type="password" formControlName="ConfrimPassword" name="Confpassword">
+        </div>
+        <button type="submit">Signin</button>
+    </form>
+
+</div>

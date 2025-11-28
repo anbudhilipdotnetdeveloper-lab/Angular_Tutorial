@@ -8,7 +8,7 @@ import { Post } from '../models/curdtbl';
   providedIn: 'root'
 })
 export class AngularTopics {
-  private apiURL = 'https://localhost:7245/api';
+  private apiURL = 'https://localhost:44318/api';
 
   httpOptions = {
     headers: new HttpHeaders({

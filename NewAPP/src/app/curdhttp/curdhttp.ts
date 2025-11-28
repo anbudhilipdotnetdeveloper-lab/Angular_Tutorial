@@ -8,16 +8,19 @@ import {Express} from 'express';
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { AddEdit } from './addedit/addedit';
 import { ToastService } from '../services/toast-service';
-
+import { AlertMessage } from "../alert-message/alert-message";
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-curdhttp',
-  imports: [RouterLink],
+  imports: [RouterLink,CommonModule,],
   templateUrl: './curdhttp.html',
   styleUrl: './curdhttp.css'
 })
 export class CURDHTTP implements OnInit {
  posts:Post[] =[];
+
 
 constructor (private router: Router,
   public toastService:ToastService,

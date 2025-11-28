@@ -1,8 +1,8 @@
 <div class="container">
-  <h2>Angular Core Topics</h2>
+  <h2 [appMouseOverColorChange]="'green'">Angular Core Topics</h2>
   <ol>
     <li *ngFor="let item of Topiecs">
-      <button type="button" class="btn btn-link p-0" (click)="selectTopic(item)">
+      <button type="button" class="btn btn-link p-0" (click)="selectTopic(item)" [appMouseOverColorChange]="'red'" >
         {{ item }}
       </button>
     </li>
@@ -10,7 +10,39 @@
 
   <div *ngIf="selectedTopic" class="mt-3 border p-3 rounded bg-light">
     <h4>{{ selectedTopic.topic }}</h4>
-    <p><strong>Q:</strong> {{ selectedTopic.question }}</p>
-    <p><strong>A:</strong> {{ selectedTopic.answer }}</p>
+    <p [appMouseOverColorChange]="''"><strong>Q:</strong> {{ selectedTopic.question }}</p>
+    <p [appMouseOverColorChange]="'green'"><strong>A:</strong> {{ selectedTopic.answer }}</p>
   </div>
 </div>
+<div class="container mt-4">
+  <h2 class="mb-4 text-center"> {{'Welcome to Angular Topics'|uppercase|lowercase|properCase:false}}</h2>
+
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Show all topics -->
+      <div *ngIf="Topic_List && Topic_List.length > 0; else noData">
+        <div *ngFor="let topic of Topic_List" class="card mb-3 shadow-sm" [attr.id]="topic.Id">
+            <div id="{{topic.Id}}">
+          <div class="card-header bg-success text-white">
+            <h5 class="mb-0" [appMouseOverColorChange]="'red'">{{  topic.Topic }}</h5>
+          </div>
+          <div class="card-body">
+            <h6 class="card-title" [appMouseOverColorChange]="'blue'">Q: {{ topic.Question }}</h6>
+            <p class="">
+              <strong>Answer:</strong> <span [appMouseOverColorChange]="'orange'" [innerHTML]="topic.Answer"></span>
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fallback if no data -->
+      <ng-template #noData>
+        <div class="alert alert-warning text-center mt-5">
+          No topics available.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
