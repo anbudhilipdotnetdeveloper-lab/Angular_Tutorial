@@ -8,7 +8,7 @@ import { Login } from './login/login';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule,Login],
+  imports: [RouterModule],
   standalone:true,
   templateUrl: './app.html',
   styleUrl: './app.css'

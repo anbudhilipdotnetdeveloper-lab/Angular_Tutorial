@@ -73,6 +73,12 @@ button {
 button:hover {
   background: #55D3AC;
 }
+.captchaLabel{
+  background-color: lightgrey;
+  padding: 20px;
+  border-radius: 5px;
+  color: black;
+}
 
 @media(max-width: 458px) {
   
@@ -86,5 +92,6 @@ button:hover {
     box-shadow: none;
     padding: 20px 0;
   }
+  
 
 }
