@@ -8,7 +8,8 @@ import { Post } from '../models/curdtbl';
   providedIn: 'root'
 })
 export class AngularTopics {
-  private apiURL = 'https://localhost:44318/api';
+ // private apiURL = 'https://localhost:44318/api';
+  private apiURL='https://newapp-hnbse0h2hffhesat.canadacentral-01.azurewebsites.net/api';
 
   httpOptions = {
     headers: new HttpHeaders({

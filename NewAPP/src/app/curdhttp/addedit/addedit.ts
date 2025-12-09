@@ -79,7 +79,7 @@ export class AddEdit implements OnInit {
         this.angulartopicService.update(this.currentId, newPost).subscribe({
           next: (response) => {
             if (response.isSuccess) {
-              this.router.navigate(['/curds']);
+              this.router.navigate(['dashboard/curds']);
             } else {
               alert('Unable to update Angular Topic');
             }
@@ -92,7 +92,7 @@ export class AddEdit implements OnInit {
           next :(response)=>{
             if(response.isSuccess){
               this.toastService.show("New Angular Topic Created Succesfully",'success');
-              this.router.navigate(['/curds']);
+              this.router.navigate(['dashboard/curds']);
             }else{
                this.toastService.show("Unable to Create Angular Topic",'error');
             }
@@ -108,7 +108,7 @@ export class AddEdit implements OnInit {
   cancel(){
     this.PostFrom.clearValidators();
     // navigate back to the list
-    this.router.navigate(['/curds']);
+    this.router.navigate(['dashboard/curds']);
     
   }
   

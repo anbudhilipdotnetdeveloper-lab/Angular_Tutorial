@@ -25,7 +25,7 @@ export const routes: Routes = [
     { path: 'curd', component: CURD },
     { path: 'curds', component: CURDHTTP },
 
-    { path: 'curds/AddEdit/:Id', component: AddEdit },
+    { path: 'curds/AddEdit/:Id', component: AddEdit},
     { path: 'curds/AddEdit', component: AddEdit },
 
     { path: 'show-alert', component: ShowAlert },

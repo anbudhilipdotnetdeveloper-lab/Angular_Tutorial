@@ -45,7 +45,7 @@ constructor (private router: Router,
   // navigate to AddEdit and pass the selected post via navigation state to avoid another API call
   edit(post: Post) {
     // pass the whole post object in state so AddEdit can populate the form without calling API
-    this.router.navigate(['/curds','AddEdit', post.Id],{ state: { topic: post } });
+    this.router.navigate(['dashboard/curds','AddEdit', post.Id],{ state: { topic: post } });
   }
   delete(id:string){
     if(confirm("Are you sure to Delete this record?")){
