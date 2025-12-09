@@ -11,8 +11,7 @@
             </tr>
         </thead>
         <tbody>
-         @for (post of posts;track $index ){ 
-            <tr>
+            <tr *ngFor="let post of posts; let i = index">
                  <td>{{post.Id}}</td>
                 <td>{{post.Topic}}</td>
                 <td>{{post.Question}}</td>
@@ -22,9 +21,11 @@
                          <a (click)="delete(post.Id)" class="btn btn-danger">Delete</a>
                      </td>
             </tr>
-        }
         </tbody>
 
     </table>
     <!-- AddEdit renders via top-level route /curds/AddEdit/:id in the main outlet -->
 </div>
+
+<br>
+

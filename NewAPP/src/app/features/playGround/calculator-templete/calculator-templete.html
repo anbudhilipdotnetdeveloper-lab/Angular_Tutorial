@@ -1,0 +1,14 @@
+<h2></h2>
+<div>
+    <app-calculator (addNumber)="add($event)"
+    (subNumber)="sub($event)"
+    (mulNumber)="mul($event)"
+    (divideNumber)="divide($event)">
+
+    </app-calculator>
+</div>
+<h3>Result :</h3>  
+<span>{{result}}</span>  
+<br />  
+<br />  
+<input type="button" value="Reset" (click)="reset()" />  

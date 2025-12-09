@@ -4,18 +4,15 @@ import { AppAppAppFormsComponent } from './app-forms/app-forms';
 import { importProvidersFrom } from '@angular/core';
 import {HomePage}from '../app/home-page/home-page';
 import {RouterModule} from '@angular/router';
-import {SearchBar} from '../app/home-page/search-bar/search-bar';
-import { NavBar} from './home-page/nav-bar/nav-bar';
-import { SideBar } from './home-page/side-bar/side-bar';
-import { ContentPage } from './home-page/content-page/content-page';
+import { Login } from './login/login';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule,NavBar,SideBar],
+  imports: [RouterModule],
   standalone:true,
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('NewAPP');
+  
 }

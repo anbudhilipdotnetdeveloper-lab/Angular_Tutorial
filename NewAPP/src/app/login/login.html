@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+    <h1 class="m-4">Making Your Note Here@!</h1>
+    <form [formGroup]='LoginForm' (ngSubmit)="onSubmit()">
+        <div class="row">
+            <label for="Uname">UserName</label>
+            <input type="text" name="Uname" formControlName="UserName" autocomplete="off" placeholder="anbuvel">
+        </div>
+        <div class="row">
+            <label for="password">Password</label>
+            <input type="password" formControlName="Password" name="password">
+        </div>
+        <div class="row " >
+            <div class=" captchaLabel" >
+            <label  *ngFor="let captcha of captchaText" class="p-1" style="margin-left: 10px;">
+                {{ captcha }}
+            </label>
+              <span class="my-2 ms-2 text-dark " (click)="refreshCaptcha()" style="cursor: pointer;margin-right: 0px;">
+                <i class="bi bi-arrow-clockwise"></i>
+              </span>
+            </div>
+          
+        </div>
+        <div class="row">
+            <input type="text"  name="captcha" formControlName="captcha" complete="off" placeholder="enter the captcha">
+        </div>
+        <button type="submit">Signin</button>
+
+        <div id="errorMsg" class="text-danger mt-2"> {{errorMsg}}</div>
+    </form>
+     
+
+</div>

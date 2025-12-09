@@ -1,3 +1,5 @@
 {
-    "apiBaseUrl":"https://localhost:44318/api/AngularTutorial/"
+    "apiBaseUrl":"https://localhost:44318/api/AngularTutorial/",
+    "UserName":"Admin",
+    "Password":"Admin"
 }

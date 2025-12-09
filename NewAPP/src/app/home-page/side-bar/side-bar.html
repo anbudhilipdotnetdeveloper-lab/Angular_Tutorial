@@ -2,7 +2,7 @@
   <ul class="nav flex-column " >
     <!-- ✅ Working main link -->
     <li class="nav-item">
-      <a routerLink="/content" routerLinkActive="active-link">Content Page</a>
+      <a routerLink="/dashboard/content" routerLinkActive="active-link">Content Page</a>
     </li>
 
     <!-- ✅ Angular Topics submenu -->
@@ -29,16 +29,35 @@
     <li>
       <a class="nav-link text-start fs-5" data-bs-toggle="collapse" href="#curd" role="button"
          aria-expanded="false" aria-controls="curd">
-        <i class="bi bi-folder"></i> Manage Angular Topics ▼
+        <i class="bi bi-gear"></i> Manage Angular Topics ▼
       </a>
 
       <div class="collapse" id="curd">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3 ">
           <li>
-            <a routerLink="/curds" routerLinkActive="active-link" class="d-block py-1" style="padding: inherit;font-size: medium;"> 1. Edit Topics</a>
+            <a routerLink="/dashboard/curds" routerLinkActive="active-link" class="d-block py-1" style="padding: inherit;font-size: medium;"> 1. Edit Topics</a>
           </li>
           <li>
-            <a routerLink="/curd" routerLinkActive="active-link" class="d-block py-1" style="padding: inherit;font-size: medium;">2. LocalStorageCURD</a>
+            <a routerLink="/dashboard/curd" routerLinkActive="active-link" class="d-block py-1" style="padding: inherit;font-size: medium;">2. LocalStorageCURD</a>
+          </li>
+             <li>
+            <a routerLink="/dashboard/show-alert" routerLinkActive="active-link" class="d-block py-1" style="padding: inherit;font-size: medium;">3. Alert Template</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+       <!-- Angular Payground--> 
+    <li>
+      <a class="nav-link text-start fs-5" data-bs-toggle="collapse" href="#play" role="button"
+         aria-expanded="false" aria-controls="play">
+        <i class="bi bi-controller"></i>PlayGround ▼
+      </a>
+
+      <div class="collapse" id="play">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-3 ">
+          <li>
+            <a routerLink="/dashboard/calculator" routerLinkActive="active-link" class="d-block py-1" style="padding: inherit;font-size: medium;"> 1.Calculator</a>
           </li>
         </ul>
       </div>

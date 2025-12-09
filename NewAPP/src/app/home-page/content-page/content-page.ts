@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MouseOverColorChange } from '../../directives/mouse-over-color-change';
+import { ProperCasePipePipe } from '../../pipes/proper-case-pipe-pipe';
+import { AngularTopics } from '../../services/angular-topics';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import{Post} from '../../models/curdtbl';
 interface Topics {
   topic: string;
   question: string;
@@ -7,11 +12,15 @@ interface Topics {
 }
 @Component({
   selector: 'app-content-page',
-  imports: [CommonModule],
+  imports: [CommonModule,MouseOverColorChange,ProperCasePipePipe],
   templateUrl: './content-page.html',
-  styleUrl: './content-page.css'
+  styleUrl: './content-page.css',
+   standalone: true
 })
-export class ContentPage {
+export class ContentPage implements OnInit {
+
+  constructor(public angularTopic :AngularTopics ,public sanitizer : DomSanitizer){}
+  Topic_List:Post[]=[];
 Topiecs = [
     'Modules (NgModules)',
     'Components',
@@ -46,4 +55,27 @@ Topiecs = [
       this.selectedTopic = null;
     }
   }
+  
+
+
+ngOnInit(): void {
+  this.angularTopic.getAll().subscribe({
+    next:(response)=>{
+      if(response.isSuccess){
+            const rawData = JSON.parse(response.data);
+        // Sanitize topic content
+        this.Topic_List = rawData.map((item: any) => ({
+          ...item,
+          Answer: this.sanitizer.bypassSecurityTrustHtml(item.Answer)
+        }));
+      }else{
+        alert(response.message);
+        console.log(response.message);
+      }
+    },
+    error:(error)=>{
+      console.log(error);
+    }
+  })
+}
 }

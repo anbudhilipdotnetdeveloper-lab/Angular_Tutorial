@@ -1,0 +1,16 @@
+<div>  
+    Entered Message : <h4>{{message}}</h4>  
+    <input type="button" value="Show Alert" (click)="showAlertMessage()"/>  
+</div>  
+<br>
+<br>
+
+<div class="container">
+    <h3>2. Chile component (alert-message) pass data to Parent component (show-alert)</h3>
+    Entered Your Name :<input [(ngModel)]="data.name">
+    <br>
+    Write any Joke :<input [(ngModel)]="data.joke">
+    <br>
+    <input type="button" value="Sign Up" (click)="onSubmit()"/>  
+</div>
+

@@ -1,4 +1,41 @@
-.list-group-item.active {
-  background-color: #4fe713;
-  border-color: #16161600;
+
+
+.content_rs{
+    background-color: aqua;
 }
+.content_ls{
+    background-color: brown;
+}
+   
+.navbar {
+      /* static top nav */
+      position: static;
+      width: 100%;
+      z-index: 1000;
+    }
+    .sidebar {
+      width: 250px;
+      position: absolute;
+      top: 56px; /* height of navbar */
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      background-color: #f8f9fa;
+      overflow: auto;
+    }
+    .content {
+      margin-left: 250px;
+     
+      padding: 1rem;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+      }
+      .content {
+        margin: 0;
+      }
+    }

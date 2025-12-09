@@ -1,0 +1,33 @@
+<div class="container">
+    <h2 class="text-center">Simple Calculator using @viewChild</h2>
+    <form>
+        <div class="row">
+            <div class="col-3">
+            <label for="num1" class="form-label">
+                Enter First Number :
+             </label>
+                <input  type="number" [(ngModel)]="firstNumber" name="num1" class="form-control"/>
+                </div>
+        </div>
+                <div class="row">
+                    <div class="col-3">
+            <label for="num1" class="form-label">
+                Enter Secound Number :
+             </label>
+                <input type="number"  [(ngModel)]="secondNumber"  name="num2" class="form-control"/>
+                </div>
+        </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-warning m-1" (click)="add()">Add</button>
+         
+                        <button type="button" class="btn btn-warning  m-1" (click)="sub()">Sub</button>
+
+                        <button type="button" class="btn btn-warning  m-1" (click)="mul()">Mul</button>
+  
+                        <button type="button" class="btn btn-warning  m-1" (click)="divide()">Divide</button>
+                    </div>
+                </div>
+    </form>
+        
+</div>
