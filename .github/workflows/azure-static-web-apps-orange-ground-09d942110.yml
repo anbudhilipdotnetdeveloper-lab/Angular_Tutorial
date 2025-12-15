@@ -8,6 +8,7 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build_and_deploy_job:
@@ -73,6 +74,9 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           action: "close"
+        
+  
+
 
 
 
