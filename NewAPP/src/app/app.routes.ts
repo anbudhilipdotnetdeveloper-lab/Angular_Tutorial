@@ -13,6 +13,7 @@ import { ShowAlert } from './show-alert/show-alert';
 import { CalculatorTemplete } from './features/playGround/calculator-templete/calculator-templete';
 import { Login } from './login/login';
 
+
 export const routes: Routes = [
     {
   path: 'dashboard',
@@ -21,7 +22,7 @@ export const routes: Routes = [
     { path: '', redirectTo: 'content', pathMatch: 'full' },
 
     { path: 'content', component: ContentPage },
-    { path: 'about', component: CURDHTTP },
+    { path: 'about', component: AboutPage },
     { path: 'curd', component: CURD },
     { path: 'curds', component: CURDHTTP },
 
